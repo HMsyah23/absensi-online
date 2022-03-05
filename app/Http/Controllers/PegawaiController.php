@@ -3,28 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pegawai;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PegawaiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function home()
     {
-        //
+        return view('admin.pegawai.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index(Request $request)
+    {
+        $data = Pegawai::with(['bidang','sub_bidang','golongan','statusKerja'])->get();
+        return response()->json(['data' => $data], 200);
+    }
+
     public function create()
     {
-        //
+        return view('admin.pegawai.create');
     }
 
     /**
@@ -44,9 +41,10 @@ class PegawaiController extends Controller
      * @param  \App\Models\Pegawai  $pegawai
      * @return \Illuminate\Http\Response
      */
-    public function show(Pegawai $pegawai)
+    public function show($pegawai)
     {
-        //
+        $data = Pegawai::with(['bidang','sub_bidang','golongan','statusKerja'])->where('nip',$pegawai)->first();
+        return response()->json(['data' => $data], 200);
     }
 
     /**
@@ -57,7 +55,8 @@ class PegawaiController extends Controller
      */
     public function edit(Pegawai $pegawai)
     {
-        //
+        return view('admin.pegawai.show', compact('pegawai'));
+
     }
 
     /**
@@ -78,8 +77,10 @@ class PegawaiController extends Controller
      * @param  \App\Models\Pegawai  $pegawai
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pegawai $pegawai)
+    public function destroy($pegawai)
     {
-        //
+        $data = Pegawai::where('nip',$pegawai)->first();
+        $data->delete();
+        return response()->json(['data' => $data], 200);
     }
 }

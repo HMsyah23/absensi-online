@@ -19,10 +19,12 @@ class CreateAbsensisTable extends Migration
             $table->foreign('pegawai_id')
                 ->references('id')
                 ->on('pegawais')->onDelete('cascade');
-            $table->string('lokasi',20);
+            $table->string('lokasi',1);
             $table->string('keterangan',100)->nullable();    
-            $table->string('koordinat',100)->nullable();    
-            $table->timestamps();
+            $table->string('latitude',30)->nullable();    
+            $table->string('longtitude',30)->nullable();    
+            $table->string('status',1);    
+            $table->string('waktu')->timestamp();    
         });
     }
 

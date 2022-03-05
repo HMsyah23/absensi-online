@@ -9,7 +9,7 @@ body {
   font-family: "Roboto", sans-serif !important;
   line-height: 26px !important;
   color: #6c6c6c !important;
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
 }
 
 h1, h2, h3, h4, h5, h6 {

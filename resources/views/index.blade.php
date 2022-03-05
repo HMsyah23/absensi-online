@@ -5,12 +5,14 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
-<title>StickyMobile BootStrap</title>
+<meta name="theme-color" content="#8CC152">
+<title>Absensi Online | DKP3A</title>
 <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="styles/style.css">
+<link rel="icon" href="app/icons/favicon.ico">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">    
-<link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+<link rel="manifest" href="manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
 <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
 </head>
     
@@ -33,15 +35,15 @@
             
             <!-- shows in light mode-->
             <div class="show-on-theme-light card-center text-center">
-                <img class="preload-img" src="images/preload-logo.png" width="90">
+                <img class="preload-img" src="{{asset('images/preload-logo.png')}}" width="90">
                 <h1 class="color-black font-40 font-800 mt-3">ABSENSI ONLINE</h1>
                 <p class="color-black opacity-50">DINAS KEPENDUDUKAN PEMBERDAYAAN PEREMPUAN <br> DAN PERLINDUNGAN ANAK</p>
                 
-                <p class="boxed-text-xl font-14 font-400 line-height-l color-black">
+                {{-- <p class="boxed-text-xl font-14 font-400 line-height-l color-black">
                     Silahkan Masukkan Token Untuk Masuk Ke Aplikasi
-                </p>
+                </p> --}}
 
-                <div class="mr-5">
+                {{-- <div class="mr-5">
                     <div class="input-style has-borders no-icon validate-field mb-4">
                         <input type="name" class="form-control validate-name" id="form1" placeholder="John">
                         <label for="form1" class="color-highlight disabled">John</label>
@@ -49,19 +51,26 @@
                         <i class="fa fa-check disabled valid color-green-dark"></i>
                         <em>(optional)</em>
                     </div>
-                </div>
+                </div> --}}
 
-                <a href="{{route('home')}}" data-back-button class="btn btn-m font-900 text-uppercase rounded-l btn-center-l bg-highlight">Masuk</a>
+                <a href="{{route('home')}}" data-back-button class="btn btn-m font-900 text-uppercase rounded-l btn-center-l bg-green-dark">Masuk</a>
+            </div>
+
+            <div class="show-on-theme-dark card-center text-center">
+                <img class="preload-img" src="{{asset('images/preload-logo.png')}}" width="90">
+                <h1 class="color-white font-40 font-800 mt-3">ABSENSI ONLINE</h1>
+                <p class="color-white opacity-50">DINAS KEPENDUDUKAN PEMBERDAYAAN PEREMPUAN <br> DAN PERLINDUNGAN ANAK</p>
+                <a href="{{route('home')}}" data-back-button class="btn btn-m font-900 text-uppercase rounded-l btn-center-l bg-green-dark">Masuk</a>
             </div>
             
             <div class="card-overlay bg-theme opacity-85"></div>
-            <div class="card-overlay-infinite preload-img" data-src="images/pictures/_bg-infinite.jpg"></div>
+            <div class="card-overlay-infinite preload-img" data-src="{{asset('images/pictures/_bg-infinite.jpg')}}"></div>
         </div>
     
     </div>
 
 </div>
 
-<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
-<script type="text/javascript" src="scripts/custom.js"></script>
+<script type="text/javascript" src="{{asset('scripts/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('scripts/custom.js')}}"></script>
 </body>

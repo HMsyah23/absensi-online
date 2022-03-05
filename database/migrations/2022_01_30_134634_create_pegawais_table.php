@@ -16,6 +16,10 @@ class CreatePegawaisTable extends Migration
         Schema::create('pegawais', function (Blueprint $table) {
             $table->id();
             $table->string('gelar_depan',50)->nullable();
+            $table->bigInteger('bidang_id')->unsigned();
+            $table->foreign('bidang_id')
+                ->references('id')
+                ->on('bidangs')->onDelete('cascade');
             $table->bigInteger('sub_bidang_id')->unsigned();
             $table->foreign('sub_bidang_id')
                 ->references('id')
@@ -23,10 +27,12 @@ class CreatePegawaisTable extends Migration
             $table->string('nama_depan',50);
             $table->string('nama_belakang',50)->nullable();
             $table->string('gelar_belakang',50)->nullable();
-            $table->string('status',1);
+            $table->string('pns',1);
             $table->string('nip',18)->nullable();
-            $table->string('golongan',5)->nullable();
-            $table->string('pangkat',50)->nullable();
+            $table->bigInteger('golongan_id')->unsigned();
+            $table->foreign('golongan_id')
+                ->references('id')
+                ->on('golongans')->onDelete('cascade');
             $table->date('tmt_golongan')->nullable();
             $table->string('jabatan',100)->nullable();
             $table->date('tgl_lahir')->nullable();
